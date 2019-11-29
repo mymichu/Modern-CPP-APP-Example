@@ -6,10 +6,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(src)
 
-add_executable(calculatorApplication src/main.cpp src/utils/calculator.cpp)
+add_library(calculator src/utils/calculator.cpp)
+add_executable(calculator.exe src/main.cpp src/utils/calculator.cpp)
 
 option(BUILD_UTEST "Build Unit Test" ON)
-option(USE_COVERAGE "DO BUILD COVERAGE" ON)
+option(USE_COVERAGE "DO BUILD COVERAGE" OFF)
 
 if(BUILD_UTEST)
     include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
