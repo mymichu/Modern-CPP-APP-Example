@@ -17,6 +17,7 @@ class Calculator(ConanFile):
         # build() and package()
         cmake.definitions["BUILD_UTEST"] = "ON"
         cmake.definitions["USE_COVERAGE"] = "OFF"
+        cmake.definitions["CMAKE_BUILD_TYPE"] = "Debug"
 
         cmake.configure()
         return cmake
