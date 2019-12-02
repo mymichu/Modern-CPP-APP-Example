@@ -16,7 +16,8 @@ class Calculator(ConanFile):
         # put definitions here so that they are re-used in cmake between
         # build() and package()
         cmake.definitions["BUILD_UTEST"] = "ON"
-        cmake.definitions["USE_COVERAGE"] = "OFF"
+        cmake.definitions["USE_COVERAGE"] = "ON"
+        cmake.definitions["CMAKE_BUILD_TYPE"]="Release"
 
         cmake.configure()
         return cmake
@@ -26,7 +27,7 @@ class Calculator(ConanFile):
         cmake = self.configure_cmake()
         cmake.build()
         cmake.test()
-        #self.run("../show_coverage.sh")
+        self.run("../show_coverage.sh")
 
     def package(self):
         self.copy("*.hpp", dst="include", keep_path=False)
