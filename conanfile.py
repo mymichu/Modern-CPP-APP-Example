@@ -6,7 +6,7 @@ class Calculator(ConanFile):
     url = "Basic-Calculator"
     description = "<Description of Hello here>"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "doctest/2.3.4@bincrafters/stable" # comma-separated list of requirements
+    requires = "gtest/1.8.1@bincrafters/stable" # comma-separated list of requirements
     generators = "cmake", "gcc", "txt"
     exports_sources = "src/*", "test/*", "CMakeLists.txt"
 
